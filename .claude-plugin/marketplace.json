@@ -1,0 +1,19 @@
+{
+  "name": "quizpep",
+  "owner": {
+    "name": "Quizpep",
+    "url": "https://quizpep.com"
+  },
+  "metadata": {
+    "description": "Quizpep's plugins for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "quizpep",
+      "source": "./",
+      "description": "Build, edit, test and publish Shopify product quizzes in Quizpep by chatting with Claude.",
+      "version": "1.0.0",
+      "category": "productivity"
+    }
+  ]
+}
