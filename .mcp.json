@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "quizpep": {
+      "type": "http",
+      "url": "https://app.quizpep.com/mcp"
+    }
+  }
+}
