@@ -374,10 +374,17 @@ all|desktop|mobile, `animation` none|fade|slide|zoom.
 0.5–2), `imageFit` cover|contain, `image` variant|featured|second, `hoverImage`, `gallery`
 none|thumbnails|slideshow, `variants` hidden|dropdown|buttons|quick_add|separate, `showQuantity`,
 `showVendor`, `showType`, `showDescription` (+ `descriptionLength` short|full), `showSavings`,
-`saleBadge`, `hidePrice`, `hideLinks`, `hideAddToCart`, `hideSoldOutVariants`, `variantTitle`, `newTab`,
+`saleBadge`, `tagBadge`, `hidePrice`, `hideLinks`, `hideAddToCart`, `hideSoldOutVariants`, `variantTitle`, `newTab`,
 `fullWidthButton` (true), `textAlign` left|center, `buttonLabel`, `button` (ButtonLook), `imageRadius`
 0–40, `fonts.{title,vendor,type,description,price,variant}` = `{color, style normal|italic|uppercase,
 weight light…bold, size 8–48, mobileSize, letterSpacing -2–10}`.
+
+`tagBadge` = `{prefix (req, 1–40), label}`: a badge on the product photo from the product's first tag
+that starts with `prefix`; the rest of the tag fills `{value}` in `label`. Example:
+`{"prefix": "ages-", "label": {"en": "Ages {value}"}}` turns the tag `ages-3+` into "Ages 3+";
+`{"prefix": "players-", "label": {"en": "{value} players"}}` turns `players-2-4` into "2-4 players".
+Products without a matching tag show no badge, so check the catalog's tags with `search_products`
+first. If a sale badge is also shown, it moves to the other corner.
 
 Product images, titles and prices always come from the catalog; never put them in the document.
 

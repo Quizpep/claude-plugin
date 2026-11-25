@@ -261,6 +261,14 @@ To show fixed products per personality instead, give the personality `pin` signa
 (`{"kind": "pin", "productId": "gid://shopify/Product/<id>"}`) with real ids from `search_products`;
 pinned products are shown in that order and replace the scored ranking.
 
+Give each personality an `imageUrl` (absolute https; `upload_image` first) to show its picture
+above the heading on the results page.
+
+**"Which one is right for you?"** (good/better/best): one personality per product tier, set
+`settings.resultCount` to 1 so only the best match shows, and put the products section in a
+narrow column (`"style": {"width": "narrow"}`). A `highlights` section with `level` 1–5 per tier
+makes a quick "how they compare" row.
+
 ---
 
 ## (d) Manual results with path conditions

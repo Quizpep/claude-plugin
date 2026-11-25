@@ -37,7 +37,10 @@ They need Quizpep installed on their store.
    (recommend products, grow the email list, both), who takes it, and whether to ask for an email.
    If the merchant already said, don't ask.
 3. **Start from a template.** `list_templates`; if one is close, `get_template` and adapt it. It is
-   already valid and well designed. Use `blank` only for something unusual.
+   already valid and well designed, with photos, icons and a matching results page. There are product
+   finders for many niches, personality quizzes (style, scent, self-care, décor, eyewear), a size
+   finder, a bundle builder, a gift finder, an email-capture quiz and a "which one is right for you?"
+   good/better/best quiz. Use `blank` only for something unusual.
 4. **Write the quiz.** Usually 4–8 questions, 2–6 answers each. For each answer, decide which
    products it should lead to and express that as signals on real catalog values
    (`references/quiz-format.md` §9). Match the store's tone and colors (`design`).
