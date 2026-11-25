@@ -128,6 +128,7 @@ Common fields (`id`, `type`, `title` required):
 | Key | Type | Notes |
 |---|---|---|
 | `description` | LocalizedText | plain text under the title |
+| `stepLabel` | LocalizedText | a one- or two-word name ("Skin type") shown by the `tabs`, `side_list` and `numbered` progress styles |
 | `required` | bool, default true | false → shopper can skip |
 | `propertyName` | `^[a-z][a-z0-9_]{0,39}$` | key used when syncing the answer to Klaviyo/metafields |
 | `answers` | Answer[] | choice types only (ignored + warning on others) |
@@ -180,6 +181,8 @@ Only the first email field is the shopper's email (>1 → warning). A phone fiel
 | `id` | yes | unique within the question |
 | `label` | yes | plain LocalizedText |
 | `imageUrl` | | absolute URI; shown on any choice button, main use `image_choice` |
+| `icon` | | an icon name, e.g. `coffee`, `moon-stars`, `paw-print` (`get_quiz_format` part `Icons` lists them by topic). Shown on text answers; answers with `imageUrl` and `image_choice` show the picture instead. Unknown name → warning, no icon |
+| `description` | | plain LocalizedText, a short second line under the label (hidden in `pills`) |
 | `signals` | | Signal[] (§9) |
 | `customerTag` | | ≤255 chars, Shopify customer tag added when chosen (`tagCustomers`) |
 | `next` | | NextStep (§8), single-select only |
@@ -350,6 +353,7 @@ PathCondition: `{questionId (req), answerIds, match: any|all, min, max}`.
 | `faq` | accordion | `faqs` 1–20 `[{question, answer}]` | `heading`, `body` |
 | `custom` | 1–2 blocks side by side | `blocks` 1–2 | block `type`: text\|image (`imageUrl` req)\|video (`videoUrl` req)\|product (`productId` req)\|collection (`collection` req)\|newsletter |
 | `html` | merchant's own HTML/CSS | non-blank `html` | ≤20000 chars, not sanitised |
+| `highlights` | small icon cards (care guide, brewing tips, spec meters) | `items` 1–8 `[{icon?, title, text?, level? 0–5}]` | `heading`, `body`; `level` draws a 5-mark meter |
 
 Shared optional section fields: `hidden`, `style` (SectionStyle), `useGlobalStyle`, `buttonStyle`
 primary|outline|link, `buttonColor` primary|secondary|tertiary, `buttonSize`.
@@ -386,7 +390,10 @@ Product images, titles and prices always come from the catalog; never put them i
 `headingFont`/`bodyFont`: theme | playfair_display | cormorant_garamond | lora | libre_baskerville |
 dm_serif_display | poppins | montserrat | dm_sans | inter | nunito | work_sans | jost | raleway |
 space_grotesk, `answerLayout` list|grid|pills (list; `image_choice` always shows image tiles),
-`progressStyle` bar|segments|dots|steps|none, `progressCounter`, `buttonStyle` filled|outline,
+`answerIcons` `{style: line|fill|line_fill (line, solid once chosen; default), size: small|medium|large,
+frame: none|circle}`, `progressStyle` bar|segments|dots|steps|ring|numbered|tabs|percent|counter|icons|
+side_list|goal|roman|none (`tabs`/`side_list` show each question's `stepLabel`), `progressIcon` (icon
+name for `icons`, default star, and `goal`, default gift), `progressCounter`, `buttonStyle` filled|outline,
 `inputStyle` outline|filled, `pageWidth` contained (760px)|wide (1200px)|full, `nextButton`,
 `backButton` (ButtonLook), `questionStyle` (SectionStyle for every question page), `customCss`
 (≤20000 chars).
