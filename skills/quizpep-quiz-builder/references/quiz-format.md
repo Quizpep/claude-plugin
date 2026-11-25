@@ -296,8 +296,8 @@ and its `description` (rich) replaces the body. Product choice:
   if all are out of stock, no products show.
 - other personality signals (prefer/require/avoid…) are added to the answers' signals, then normal
   ranking. No signals → products ranked by answer signals only.
-- Personality fields: `id`, `title` (req), `description`, `imageUrl` (stored; not currently shown on
-  the storefront page), `signals`, `onlyWhenChosen` (only eligible if the shopper picked one of its
+- Personality fields: `id`, `title` (req), `description`, `imageUrl` (shown above the results
+  heading when that personality wins), `signals`, `onlyWhenChosen` (only eligible if the shopper picked one of its
   answers outside `ignoreQuestionIds`).
 - Without `personalityRules`: most points wins; ties → listed first.
 - `personalityRules`: `show` 1–3 (results shown, best first), `fairScoring` (rank by share of
