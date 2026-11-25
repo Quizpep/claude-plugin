@@ -139,6 +139,7 @@ Common fields (`id`, `type`, `title` required):
 | `style` | SectionStyle | page look |
 | `nextButton`, `backButton` | ButtonLook | `{color: primary\|secondary\|tertiary, style: primary\|outline\|link, size, fullWidth}` |
 | `shuffleAnswers` | bool | random answer order |
+| `selectionTray` | bool | multiple choice with `maxSelections` ≤ 8: a tray of that many slots under the answers fills as the shopper picks (build-your-bundle) |
 | `category`, `weigh` | Id, bool | couples quizzes only (§13) |
 
 ### Types
@@ -339,9 +340,9 @@ PathCondition: `{questionId (req), answerIds, match: any|all, min, max}`.
 
 | `type` | Purpose | Required (validator) | Main fields |
 |---|---|---|---|
-| `header` | results heading, body, discount | – | `style` |
+| `header` | results heading, body, discount | – | `style`, `badge` (a short value in a big circle above the heading, takes `{{answer}}` tokens, e.g. `{{usual_size}}`), `badgeLabel` |
 | `products` | the recommendations | – | `card` |
-| `footer` | Retake + Add all to cart | – | `retakeButton` |
+| `footer` | Retake + Add all to cart | – | `retakeButton`, `showTotal` (total price of the products, for bundles) |
 | `text` | heading + text | – | `subheading`, `heading`, `body`, `buttonLabel` + `link` (button needs both) |
 | `image` | one image | `imageUrl` | `alt`, `link`, `mobileImageUrl` |
 | `hero` | banner with text over image | `imageUrl` or `heading` | `subheading`, `heading`, `body`, `buttonLabel`, `link`, `overlay`, `overlayColor`, `textPosition`, `textBackground` |
